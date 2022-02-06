@@ -54,7 +54,8 @@ def add_category(request):
         
         else:
             print(form.errors)
-            
+    
+    #return redirect(reverse('rango:add_category', kwargs = {'form': form}))
     return render(request, 'rango/add_category.html', {'form': form})
 
 
@@ -86,6 +87,7 @@ def add_page(request, category_name_slug):
             print(form.errors)
         
     context_dict = {'form': form, 'category': category}
+    #return reverse('rango:add_page', kwargs=context_dict)
     return render(request, 'rango/add_page.html', context = context_dict)
         
     
